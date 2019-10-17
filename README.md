@@ -32,3 +32,11 @@ FROM ubuntu:latest
 COPY --from=cronify /usr/src/cronify/target/release/cronify /usr/local/bin
 ENTRYPOINT ["/usr/local/bin/cronify", "* * * * *", "echo", "Hello, world!"]
 ```
+
+Or simpler:
+
+```
+FROM ubuntu:latest
+ADD https://github.com/chris13524/cronify/releases/download/0.2.0/cronify /usr/local/bin/cronify
+ENTRYPOINT ["/usr/local/bin/cronify", "* * * * *", "echo", "Hello, world!"]
+```
